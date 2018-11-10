@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>获取随机颜色</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			#container {
+				width: 400px;
+				height: 500px;
+				text-align: center;
+				background-color: #eee;
+				border-radius: 10px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -250px;
+				margin-left: -200px;
+			}
+			#box {
+				width: 400px;
+				height: 400px;
+				line-height: 400px;
+				text-align: center;
+				border-radius: 10px;
+				opacity: 0.5;
+			}
+
+			#btn {
+				width: 200px;
+				height: 30px;
+				line-height: 30px;
+				margin-top: 30px;
+				outline: none;
+				color: #fff;
+				border: 1px solid #007bff;
+				border-radius: 25px;
+				background-color: #007bff;
+				cursor: pointer;
+			}
+
+			#btn:hover {
+				color: #fff;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="box">noColor</div>
+			<button id="btn">点击将会生成随机颜色</button>
+		</div>
+
+	</body>
+
+	<script>
+		window.onload = function () {
+
+			var box = document.getElementById("box");//获取div
+			var btn = document.getElementById("btn");//获取button
+			var container = document.getElementById("container");//获取container
+			colorRandom = function () {//按钮单击事件
+
+				// 1.创建数组，在RGB中颜色代码是由“#”加上3个或者6个十六进制数组合成的；
+				// 2.随机获取某个数字的下标，并累加6次；在加上“#”组成RGB颜色代码。
+
+				var colorNum = "";//创建colorNum用于存储不含“#”的十六进制数；
+				var colorLength = 6;//这个值也可以设置成3；
+				var colorArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];//15个十六进制数基本数；
+				for (var i = 0; i < colorLength; i++) {
+					var idx = Math.floor(Math.random() * 15);//idx是一个[0,14)的整数；
+					colorNum += colorArray[idx];//重复累加colorLength次得到不含“#”的十六进制数；
+				}
+				var color = "#" + colorNum;//组合16进制颜色代码；
+				box.style.opacity = 1;//将box的透明度设置为默认值；
+				box.style.backgroundColor = color;//设置box的颜色 ；
+				box.innerHTML = color;//显示当前颜色的RGB值；
+			}
+			colorRandom();
+			btn.onclick = function () { 
+				colorRandom();
+			 }
+		}
+	</script>
+
+</html>

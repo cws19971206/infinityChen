@@ -1,0 +1,22 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+}
+.fl{
+    float: left;
+    flex-grow: 3;
+}
+.fr{
+    float: right;
+    flex-grow: 7;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
