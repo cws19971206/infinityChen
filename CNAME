@@ -1,2 +1,2 @@
-$ touch CNAME
-$ echo 'infinitychen.cn'> CNAME 
+touch CNAME
+echo 'infinitychen.cn'> CNAME 
